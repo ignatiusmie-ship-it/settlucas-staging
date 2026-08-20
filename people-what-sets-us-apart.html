@@ -74,7 +74,8 @@
             <div class="wrapper">
                 <div class="row">
                     <div class="col-sm-6 bg-red-80 order-sm-1 p-3">
-                        <ul class="toc-list"><li><a href="people-working-at-sett-lucas.html">Working at Sett &amp; Lucas</a></li>
+                        <ul class="toc-list"><li><a href="people.html">People</a></li>
+<li><a href="people-working-at-sett-lucas.html">Working at Sett &amp; Lucas</a></li>
 <li><a href="people-what-sets-us-apart.html" class="font-weight-bold">What sets us apart</a></li>
 <li><a href="people-experienced-professionals.html">Experienced professionals</a></li>
 <li><a href="people-internships.html">Internships</a></li>
@@ -86,12 +87,18 @@
         </div>
     </header>
     <div class="container-fluid content-block"><div class="wrapper">
-<img src="uploads/2017/11/People-WhatSets.jpg" class="img-fluid mb-3" alt="What sets us apart">
-<p>Sett &amp; Lucas offers a career rather than a job. We stand unique by providing divergent opportunities which all lead to personal development. We employ ambitious people who are looking for a deeper personal investment in their work.</p>
-<p><strong>Our industry expertise:</strong> At Sett &amp; Lucas, we believe in strong industry knowledge. Most of our analysts have a particular expertise, becoming specialists through a combination of on the job training and industry exposure. Very few bulge bracket firms or M&amp;A boutiques provide this kind of specialized career path. The four industry based practice verticals &ndash; hi-tech and software, IT and ITES, digital marketing, IoT and industrials &ndash; provide the perfect path to achieving excellence in specific industries.</p>
-<p><strong>Mentoring across every level:</strong> Financial institutions can be very hierarchical organizations, especially firms with a global footprint. Sett &amp; Lucas has a unique model of mentoring that creates a link between the highest and the lowest executive on the corporate ladder. All senior officers of the organization, including managing partners, have a responsibility to mentor a junior analyst. Mentoring also aims to create the next set of middle management leaders. Every employee fills a diverse series of roles promoting client interests, and every Sett &amp; Lucas team leader prepares his team for the transition of an individual contributor to an efficient team player.</p>
-<p><strong>Investing in growth:</strong> Sett &amp; Lucas believes its ascendant position in the industry is due to the achievements of its employees. The firm conducts training sessions for employees to acquire new skills, sharpen existing ones, fortify their strengths, increase productivity and be better leaders.</p>
-<p><strong>Diversity and inclusion:</strong> Sett &amp; Lucas is proud to be committed to being a diverse, innovative, and inclusive workplace that creates equal opportunities for all our employees to enhance their capabilities and achieve their full potential. We embrace a performance-based culture that values differences and similarities as well as empowers out-of-the-box thinking.</p>
+<h4 class="Futura-bold-normal text-black" style="font-weight:bold;">Our teams</h4>
+<p>Employees work together in high performance teams where the inner dynamics and collaborative skills within the group are tailored to provide value to clients. Senior management identifies and regularly rewards teamwork within the organization which had led us to achieve excellence.</p>
+<h4 class="Futura-bold-normal text-black" style="font-weight:bold;">Our roles</h4>
+<p>Every employee fills a diverse series of roles promoting client interests. Every Sett &amp; Lucas team leader prepares his team for the transition of an individual contributor to an efficient team player. If you would like know more about our roles, click <a href="people.html#positions-vacant">here</a> and scroll to the bottom of the page.</p>
+<h4 class="Futura-bold-normal text-black" style="font-weight:bold;">Our training</h4>
+<p>Sett &amp; Lucas believes its ascendant position in the industry is due to the achievements of its employees. The firm conducts training sessions for employees to acquire new skills, sharpen existing ones, fortify their strengths, increase productivity and be better leaders.</p>
+<h4 class="Futura-bold-normal text-black" style="font-weight:bold;">Our diversity</h4>
+<p>Sett &amp; Lucas is proud to be committed to being a diverse, innovative, and inclusive workplace that creates equal opportunities for all our employees to enhance their capabilities and achieve their full potential. We embrace a performance-based culture that values differences and similarities as well as empowers out-of-the-box thinking. Read more <a href="people-cultural-diversity.html">here</a>.</p>
+<p><strong>Our industry expertise:</strong> At Sett &amp; Lucas, we believe in strong industry knowledge. Most of our analysts have a particular expertise, becoming specialists through a combination of on the job training and industry exposure.</p>
+<p>Very few bulge bracket firms or M&amp;A boutiques provide this kind of specialized career path. The four industry based practice verticals &ndash; hi-tech and software, IT and ITES, digital marketing, IoT and industrials provide the perfect path to achieving excellence in specific industries. Read <a href="industry-expertise.html">more</a>.</p>
+<h4 class="Futura-bold-normal text-black" style="font-weight:bold;">Mentoring</h4>
+<p>Financial institutions can be very hierarchial organizations, especially firms with a global footprint. Sett &amp; Lucas has a unique model of mentoring that creates a link between the highest and the lowest executive on the corporate ladder. All senior officers of the organization, including managing partners, have a responsibility to mentor a junior analyst. Mentoring also aims to create the next set of middle management leaders. For more on our senior management team click <a href="about-us-global-executive-leadership.html">here</a>.</p>
 </div></div></div>
     <footer class="bg-black">
         <div class="container-fluid p-0">
@@ -130,6 +137,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="theme/js/theme.js"></script>
     <script src="theme/js/fonts.js"></script>
+    <script>
+    (function() {
+        var links = document.querySelectorAll('.job-tab-link');
+        links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetSel = this.getAttribute('href');
+                var target = document.querySelector(targetSel);
+                if (!target) return;
+                var group = link.closest('.row');
+                if (group) {
+                    group.querySelectorAll('.job-tab').forEach(function(w) { w.classList.remove('active'); });
+                    group.querySelectorAll('.job-tab-link').forEach(function(l) { l.classList.remove('active'); });
+                }
+                var tabContent = target.closest('.tab-content');
+                if (tabContent) {
+                    tabContent.querySelectorAll('.tab-pane').forEach(function(p) {
+                        p.classList.remove('show', 'active');
+                    });
+                }
+                var wrap = link.closest('.job-tab');
+                if (wrap) wrap.classList.add('active');
+                link.classList.add('active');
+                target.classList.add('show', 'active');
+            });
+        });
+    })();
+    </script>
 
 </body>
 </html>

@@ -74,7 +74,8 @@
             <div class="wrapper">
                 <div class="row">
                     <div class="col-sm-6 bg-red-80 order-sm-1 p-3">
-                        <ul class="toc-list"><li><a href="people-working-at-sett-lucas.html">Working at Sett &amp; Lucas</a></li>
+                        <ul class="toc-list"><li><a href="people.html">People</a></li>
+<li><a href="people-working-at-sett-lucas.html">Working at Sett &amp; Lucas</a></li>
 <li><a href="people-what-sets-us-apart.html">What sets us apart</a></li>
 <li><a href="people-experienced-professionals.html" class="font-weight-bold">Experienced professionals</a></li>
 <li><a href="people-internships.html">Internships</a></li>
@@ -86,9 +87,8 @@
         </div>
     </header>
     <div class="container-fluid content-block"><div class="wrapper">
-<img src="uploads/2017/11/People-ExperiencedPro.jpg" class="img-fluid mb-3" alt="Experienced professionals">
-<p>Throughout our history, the one thing that has remained constant is our steadfast commitment to our clients. Sett &amp; Lucas counts on experienced professionals to define the productivity and efficiency of the organisation. We offer an exciting career with a tight knit team, where no two days will be the same.</p>
-<p>We look at experienced professionals as solution driven candidates who are the virtual stakeholders influencing the strategic business propositions of the firm. Our senior bankers bring deep sector expertise from careers at global technology firms, blue-chip corporates, and prior boutique investment banks, and are given real autonomy to run deals and build client relationships from the outset.</p>
+<p>Sett &amp; Lucas counts on experienced professionals to define the productivity and efficiency of the organisation. We offer an exciting career with a tight knit team, where no two days will be the same.</p>
+<p>If you look out to make an impact with your work, come and find your next opportunity with us. Send your resume to <a href="mailto:careers@settlucas.com">careers@settlucas.com</a></p>
 </div></div></div>
     <footer class="bg-black">
         <div class="container-fluid p-0">
@@ -127,6 +127,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="theme/js/theme.js"></script>
     <script src="theme/js/fonts.js"></script>
+    <script>
+    (function() {
+        var links = document.querySelectorAll('.job-tab-link');
+        links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetSel = this.getAttribute('href');
+                var target = document.querySelector(targetSel);
+                if (!target) return;
+                var group = link.closest('.row');
+                if (group) {
+                    group.querySelectorAll('.job-tab').forEach(function(w) { w.classList.remove('active'); });
+                    group.querySelectorAll('.job-tab-link').forEach(function(l) { l.classList.remove('active'); });
+                }
+                var tabContent = target.closest('.tab-content');
+                if (tabContent) {
+                    tabContent.querySelectorAll('.tab-pane').forEach(function(p) {
+                        p.classList.remove('show', 'active');
+                    });
+                }
+                var wrap = link.closest('.job-tab');
+                if (wrap) wrap.classList.add('active');
+                link.classList.add('active');
+                target.classList.add('show', 'active');
+            });
+        });
+    })();
+    </script>
 
 </body>
 </html>

@@ -74,7 +74,8 @@
             <div class="wrapper">
                 <div class="row">
                     <div class="col-sm-6 bg-red-80 order-sm-1 p-3">
-                        <ul class="toc-list"><li><a href="people-working-at-sett-lucas.html">Working at Sett &amp; Lucas</a></li>
+                        <ul class="toc-list"><li><a href="people.html">People</a></li>
+<li><a href="people-working-at-sett-lucas.html">Working at Sett &amp; Lucas</a></li>
 <li><a href="people-what-sets-us-apart.html">What sets us apart</a></li>
 <li><a href="people-experienced-professionals.html">Experienced professionals</a></li>
 <li><a href="people-internships.html">Internships</a></li>
@@ -86,9 +87,20 @@
         </div>
     </header>
     <div class="container-fluid content-block"><div class="wrapper">
-<img src="uploads/2017/11/People-Cultural.jpg" class="img-fluid mb-3" alt="Cultural diversity">
-<p>It is our strong belief that great organizations are built by employing the best and brightest people from different walks of life. Sett &amp; Lucas is proud to be committed to being a diverse, innovative, and inclusive workplace that creates equal opportunities for all our employees, to enhance their capabilities and achieve their full potential.</p>
-<p>Our associates represent over 11 nationalities across our eight global offices, and we believe this diversity of background and perspective is directly reflected in the quality and creativity of the advice we give our clients across every region we operate in.</p>
+<h4 class="Futura-bold-normal text-black" style="font-weight:bold;">Overview</h4>
+<p>It is our strong belief that great organizations are built by employing the best and brightest people from different walks of life.</p>
+<p>Sett &amp; Lucas is proud to be committed to being a diverse, innovative, and inclusive workplace that creates equal opportunities for all our employees, to enhance their capabilities and achieve their full potential. The proactive management of diversity across the workforce has become more critical to maximize organisational effectiveness.</p>
+<p>We believe in talent, integrity, responsibility, innovation, excellence, and perseverance. Sett &amp; Lucas invests in inclusive practices that are guided by values and principles.</p>
+<h4 class="Futura-bold-normal text-black" style="font-weight:bold;">Our approach &ndash; Investing in people</h4>
+<p>Sett &amp; Lucas looks to bring out the full potential of our employees by creating opportunities for professional and personal growth. We value diversity by adopting a leadership style where different opinions, approaches and insights are appreciated.</p>
+<p>The firm conducts joint intercultural learning programmes &ndash; brain storming sessions where employees consider real time scenarios. These help the organization to recognize and capitalize on the differences among individual employees.</p>
+<h4 class="Futura-bold-normal text-black" style="font-weight:bold;">Investing in diversity and inclusion</h4>
+<p>We believe an inclusive and diverse workforce is critical in developing creative and innovative solutions to tackle complex challenges in global markets.</p>
+<p>Sett &amp; Lucas follows a communication policy that creates a framework for broader participation in the business environment. The firm embraces an open and inclusive culture which breaks down traditional barriers.</p>
+<p>By valuing diversity we nurture our employees, creating mutual respect, and helping them to reach their fullest potential.</p>
+<h4 class="Futura-bold-normal text-black" style="font-weight:bold;">Career development and training</h4>
+<p>The career development programs at Sett &amp; Lucas are designed with metrics that help our employees to define their career goals and create plans within the context of organizational realities.</p>
+<p>Training opportunities at Sett &amp; Lucas are a combination of attitudes and skills. The firm runs plenary sessions across the organization twice in a year in which attendees speak predominantly about motivation, effective communication and topics that emphasize self-belief.</p>
 </div></div></div>
     <footer class="bg-black">
         <div class="container-fluid p-0">
@@ -127,6 +139,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="theme/js/theme.js"></script>
     <script src="theme/js/fonts.js"></script>
+    <script>
+    (function() {
+        var links = document.querySelectorAll('.job-tab-link');
+        links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetSel = this.getAttribute('href');
+                var target = document.querySelector(targetSel);
+                if (!target) return;
+                var group = link.closest('.row');
+                if (group) {
+                    group.querySelectorAll('.job-tab').forEach(function(w) { w.classList.remove('active'); });
+                    group.querySelectorAll('.job-tab-link').forEach(function(l) { l.classList.remove('active'); });
+                }
+                var tabContent = target.closest('.tab-content');
+                if (tabContent) {
+                    tabContent.querySelectorAll('.tab-pane').forEach(function(p) {
+                        p.classList.remove('show', 'active');
+                    });
+                }
+                var wrap = link.closest('.job-tab');
+                if (wrap) wrap.classList.add('active');
+                link.classList.add('active');
+                target.classList.add('show', 'active');
+            });
+        });
+    })();
+    </script>
 
 </body>
 </html>

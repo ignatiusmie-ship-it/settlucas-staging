@@ -74,7 +74,8 @@
             <div class="wrapper">
                 <div class="row">
                     <div class="col-sm-6 bg-red-80 order-sm-1 p-3">
-                        <ul class="toc-list"><li><a href="people-working-at-sett-lucas.html" class="font-weight-bold">Working at Sett &amp; Lucas</a></li>
+                        <ul class="toc-list"><li><a href="people.html">People</a></li>
+<li><a href="people-working-at-sett-lucas.html" class="font-weight-bold">Working at Sett &amp; Lucas</a></li>
 <li><a href="people-what-sets-us-apart.html">What sets us apart</a></li>
 <li><a href="people-experienced-professionals.html">Experienced professionals</a></li>
 <li><a href="people-internships.html">Internships</a></li>
@@ -86,9 +87,11 @@
         </div>
     </header>
     <div class="container-fluid content-block"><div class="wrapper">
-<img src="uploads/2017/11/People-WorkingAt.jpg" class="img-fluid mb-3" alt="Working at Sett &amp; Lucas">
-<p>Our people are what sets us apart. We believe in building high performance teams with a global perspective, bringing in individuals with diverse backgrounds, experiences and competences, based around the world. But we&rsquo;re still small enough that individual achievements are recognized.</p>
-<p>We look for people who thrive in fast-moving, entrepreneurial environments, who want ownership over their work from day one, and who are drawn to the intellectual challenge of cross-border technology M&amp;A. Our teams work closely across offices in Hong Kong, New York, Dallas, Oxford and Chennai, giving every employee genuine exposure to a truly global deal flow.</p>
+<p>These are constantly changing dynamic teams that come together to deliver value to the client. At various times during a deal, specialist groups are pulled in to work on the different aspects of the transaction.</p>
+<p>S&amp;L looks for people with the right combination of subject matter expertise, investment banking skills, boardroom presence, industry understanding, and high emotional quotient.</p>
+<p>We look for people who are unique, who we believe will help us achieve our goals. We create programs to help enhance the skills of our team, and offer flexible working so employees have a good work life balance.</p>
+<p>Our objective from the start was to create an environment where individuals would flourish and have unrivalled access to clients.</p>
+<p>Team members are involved in deals from the time they start their careers with us. As a technology focused investment bank we look for people who are passionate about the space.</p>
 </div></div></div>
     <footer class="bg-black">
         <div class="container-fluid p-0">
@@ -127,6 +130,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="theme/js/theme.js"></script>
     <script src="theme/js/fonts.js"></script>
+    <script>
+    (function() {
+        var links = document.querySelectorAll('.job-tab-link');
+        links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetSel = this.getAttribute('href');
+                var target = document.querySelector(targetSel);
+                if (!target) return;
+                var group = link.closest('.row');
+                if (group) {
+                    group.querySelectorAll('.job-tab').forEach(function(w) { w.classList.remove('active'); });
+                    group.querySelectorAll('.job-tab-link').forEach(function(l) { l.classList.remove('active'); });
+                }
+                var tabContent = target.closest('.tab-content');
+                if (tabContent) {
+                    tabContent.querySelectorAll('.tab-pane').forEach(function(p) {
+                        p.classList.remove('show', 'active');
+                    });
+                }
+                var wrap = link.closest('.job-tab');
+                if (wrap) wrap.classList.add('active');
+                link.classList.add('active');
+                target.classList.add('show', 'active');
+            });
+        });
+    })();
+    </script>
 
 </body>
 </html>

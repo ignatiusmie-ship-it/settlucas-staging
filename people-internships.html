@@ -74,7 +74,8 @@
             <div class="wrapper">
                 <div class="row">
                     <div class="col-sm-6 bg-red-80 order-sm-1 p-3">
-                        <ul class="toc-list"><li><a href="people-working-at-sett-lucas.html">Working at Sett &amp; Lucas</a></li>
+                        <ul class="toc-list"><li><a href="people.html">People</a></li>
+<li><a href="people-working-at-sett-lucas.html">Working at Sett &amp; Lucas</a></li>
 <li><a href="people-what-sets-us-apart.html">What sets us apart</a></li>
 <li><a href="people-experienced-professionals.html">Experienced professionals</a></li>
 <li><a href="people-internships.html" class="font-weight-bold">Internships</a></li>
@@ -86,11 +87,16 @@
         </div>
     </header>
     <div class="container-fluid content-block"><div class="wrapper">
-<img src="uploads/2017/11/People-Internships.jpg" class="img-fluid mb-3" alt="Internships">
-<p>After the financial crisis in 2008, most investment banking firms cut spend on internships and related training programs. This left a whole generation of corporate finance professionals and investment banking aspirants stranded with no way to gain valuable on-the-job training, knowledge and mentoring. Students of corporate finance decided to pursue other career paths and the investment banking industry suffered from a serious lack of genuine talent at the analyst and associate levels. While business schools impart strong fundamental and academic knowledge to students, most are not ready for the rigorous and intense world of investment banking.</p>
+<p>After the financial crisis in 2008, most investment banking firms cut spend on internships and related training programs. This left a whole generation of corporate finance professionals and investment banking aspirants stranded with no way to gain valuable on-the-job training, knowledge and mentoring.</p>
+<p>Students of corporate finance decided to pursue other career paths and the investment banking industry suffered from a serious lack of genuine talent at the analyst and associate levels.</p>
+<p>While business schools impart strong fundamental and academic knowledge to students, most are not ready for the rigorous and intense world of investment banking.</p>
 <p>In 2009 Sett &amp; Lucas instituted a program called COFI@S&amp;L at their US, UK and Hong Kong offices. The aim was to attract students of finance interested in a career path in corporate finance, corporate development, investment banking, fund management and transaction advisory services.</p>
-<p>Interns work with our team of highly regarded M&amp;A advisors, allowing them to gain broad experience across varied products and industry sectors. The program also includes internal training, community service, and participation in social events. We ensure our interns grow their skills so they can tackle the business challenges that make a real impact.</p>
-<p>COFI is a rigorous six to nine month internship. Most graduates of the program eventually obtain full time positions at one of the global offices of Sett &amp; Lucas &ndash; over 80% of our full time analysts and associates join us this way. The rigorous program ensures clients are serviced by industry professionals who have undergone a gold standard investment banking training program.</p>
+<p>The COFI@S&amp;L programme is designed to provide an opportunity for highly motivated undergraduates and MBAs to experience what it is like to work at an investment bank, and accelerate their development.</p>
+<p>Intern responsibilities include building financial valuation models, identifying buy side potential opportunities, conducting company and industry research, and creating client presentations.</p>
+<p>They work with our team of highly regarded M&amp;A advisors, allowing them to gain broad experience across varied products and industry sectors. The program also includes internal training, community service, and participation in social events.</p>
+<p>We ensure our interns grow their skills so they can tackle the business challenges that make a real impact.</p>
+<p>COFI is a rigorous six to nine month internship. Most graduates of the program eventually obtain full time positions at one of the global offices of Sett &amp; Lucas.</p>
+<p>Over 80% of our full time analysts and associates join us this way. The rigorous program ensures clients are serviced by industry professionals who have undergone a gold standard investment banking training program.</p>
 <p>To join our COFI@S&amp;L programme and capitalize on your potential, send your resume and statement of purpose to <a href="mailto:careers@settlucas.com">careers@settlucas.com</a></p>
 </div></div></div>
     <footer class="bg-black">
@@ -130,6 +136,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="theme/js/theme.js"></script>
     <script src="theme/js/fonts.js"></script>
+    <script>
+    (function() {
+        var links = document.querySelectorAll('.job-tab-link');
+        links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetSel = this.getAttribute('href');
+                var target = document.querySelector(targetSel);
+                if (!target) return;
+                var group = link.closest('.row');
+                if (group) {
+                    group.querySelectorAll('.job-tab').forEach(function(w) { w.classList.remove('active'); });
+                    group.querySelectorAll('.job-tab-link').forEach(function(l) { l.classList.remove('active'); });
+                }
+                var tabContent = target.closest('.tab-content');
+                if (tabContent) {
+                    tabContent.querySelectorAll('.tab-pane').forEach(function(p) {
+                        p.classList.remove('show', 'active');
+                    });
+                }
+                var wrap = link.closest('.job-tab');
+                if (wrap) wrap.classList.add('active');
+                link.classList.add('active');
+                target.classList.add('show', 'active');
+            });
+        });
+    })();
+    </script>
 
 </body>
 </html>
