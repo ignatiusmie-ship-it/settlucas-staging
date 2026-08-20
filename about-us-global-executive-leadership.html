@@ -80,7 +80,6 @@
 <li><a href="about-us-core-values.html">Core values</a></li>
 <li><a href="about-us-brand-values.html">Brand values</a></li>
 <li><a href="about-us-global-executive-leadership.html" class="font-weight-bold">Global executive leadership</a></li>
-<li><a href="about-us-ma-thought-leadership.html">M&amp;A Thought leadership</a></li>
 <li><a href="about-us-awards.html">Awards</a></li></ul>
                     </div>
                     <div class="col-sm-6 order-sm-2 text-white pl-sm-4 pt-3" style="text-align:left;"><p>The people driving us forward</p></div>
@@ -185,6 +184,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="theme/js/theme.js"></script>
     <script src="theme/js/fonts.js"></script>
+    <script>
+    (function() {
+        var links = document.querySelectorAll('.job-tab-link');
+        links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetSel = this.getAttribute('href');
+                var target = document.querySelector(targetSel);
+                if (!target) return;
+                var group = link.closest('.row');
+                if (group) {
+                    group.querySelectorAll('.job-tab').forEach(function(w) { w.classList.remove('active'); });
+                    group.querySelectorAll('.job-tab-link').forEach(function(l) { l.classList.remove('active'); });
+                }
+                var tabContent = target.closest('.tab-content');
+                if (tabContent) {
+                    tabContent.querySelectorAll('.tab-pane').forEach(function(p) {
+                        p.classList.remove('show', 'active');
+                    });
+                }
+                var wrap = link.closest('.job-tab');
+                if (wrap) wrap.classList.add('active');
+                link.classList.add('active');
+                target.classList.add('show', 'active');
+            });
+        });
+    })();
+    </script>
 
 </body>
 </html>

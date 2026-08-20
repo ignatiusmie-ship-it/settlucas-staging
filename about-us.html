@@ -83,8 +83,7 @@
 <li><a href="#sec3">Core values</a></li>
 <li><a href="#sec4">Brand values</a></li>
 <li><a href="#sec5">Global executive leadership</a></li>
-<li><a href="#sec6">M&amp;A Thought leadership</a></li>
-<li><a href="#sec7">Awards</a></li></ul>
+<li><a href="#sec6">Awards</a></li></ul>
                     </div>
                 </div>
             </div>
@@ -185,21 +184,6 @@
             </div>
             <div id="sec6" class="row about-row mb-0 no-gutters">
                 <div class="col-6 col-md-3 bg-red text-white Eirlys-normal-normal ao-title position-relative p-3">
-                    <h2 class="Eirlys-normal-normal">M&amp;A Thought leadership</h2>
-                    <img class="img-fluid service-icon p-2" src="uploads/2017/11/icon-MAThought.svg" alt="">
-                </div>
-                <div class="col-6 col-md-3 ao-sub text-white" style="background-image:url('uploads/2017/11/pic-MAThought.jpg');">
-                    <div class="inner d-flex align-items-center p-3">
-                        <h1>The Mandate</h1>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 ao-excerpt p-3 py-4">
-                    <p>The lead bankers at Sett &amp; Lucas are currently authoring a book that includes several interesting M&amp;A case-stories called The Mandate. Project Bourbon is the first chapter, an extract is free to read on this website.</p>
-                    <a class="btn btn-sl" href="about-us-ma-thought-leadership.html">Read more</a>
-                </div>
-            </div>
-            <div id="sec7" class="row about-row mb-0 no-gutters">
-                <div class="col-6 col-md-3 bg-red text-white Eirlys-normal-normal ao-title position-relative p-3">
                     <h2 class="Eirlys-normal-normal">Awards</h2>
                     <img class="img-fluid service-icon p-2" src="uploads/2017/11/icon-Awards.svg" alt="">
                 </div>
@@ -253,6 +237,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="theme/js/theme.js"></script>
     <script src="theme/js/fonts.js"></script>
+    <script>
+    (function() {
+        var links = document.querySelectorAll('.job-tab-link');
+        links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetSel = this.getAttribute('href');
+                var target = document.querySelector(targetSel);
+                if (!target) return;
+                var group = link.closest('.row');
+                if (group) {
+                    group.querySelectorAll('.job-tab').forEach(function(w) { w.classList.remove('active'); });
+                    group.querySelectorAll('.job-tab-link').forEach(function(l) { l.classList.remove('active'); });
+                }
+                var tabContent = target.closest('.tab-content');
+                if (tabContent) {
+                    tabContent.querySelectorAll('.tab-pane').forEach(function(p) {
+                        p.classList.remove('show', 'active');
+                    });
+                }
+                var wrap = link.closest('.job-tab');
+                if (wrap) wrap.classList.add('active');
+                link.classList.add('active');
+                target.classList.add('show', 'active');
+            });
+        });
+    })();
+    </script>
 
 </body>
 </html>
